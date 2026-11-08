@@ -1,33 +1,44 @@
 
 {
-  "manifest_version": 3,
-  "name": "Google Docs Emoji Toggle",
-  "version": "1.0.0",
-  "description": "Toggle check and cross emojis in Google Docs.",
-  "permissions": [
-    "activeTab",
-    "debugger",
-    "clipboardRead"
-  ],
-  "background": {
-    "service_worker": "background.js"
-  },
-  "content_scripts": [
-    {
-      "matches": [
-        "https://docs.google.com/document/*"
-      ],
-      "js": ["content.js"],
-      "all_frames": true
-    }
-  ],
-  "commands": {
-    "toggle-emoji": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+Y",
-        "mac": "Command+Shift+Y"
-      },
-      "description": "Toggle selected checkbox emoji"
-    }
-  }
+	"manifest_version": 3,
+	"name": "Google Docs Emoji Toggle",
+	"version": "0.3.0",
+	"description": "Toggle check and cross emojis in Google Docs.",
+	"icons": {
+		"16": "favicons/favicon-16.png",
+		"32": "favicons/favicon-32.png",
+		"48": "favicons/favicon-48.png",
+		"128": "favicons/favicon-128.png"
+	},
+	"permissions": [
+		"activeTab",
+		"debugger",
+		"clipboardRead",
+		"storage"
+	],
+	"background": {
+		"service_worker": "background.js"
+	},
+	"action": {
+		"default_title": "Google Docs Emoji Toggle",
+		"default_popup": "popup.html"
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"https://docs.google.com/document/*"
+			],
+			"js": ["content.js"],
+			"all_frames": true
+		}
+	],
+	"commands": {
+		"toggle-emoji": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+Y",
+				"mac": "Command+Shift+Y"
+			},
+			"description": "Toggle selected checkbox emoji"
+		}
+	}
 }

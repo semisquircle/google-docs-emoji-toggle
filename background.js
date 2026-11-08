@@ -137,6 +137,15 @@ async function toggleEmoji(tabId) {
 chrome.commands.onCommand.addListener(async (command) => {
 	if (command !== "toggle-emoji") return;
 
+	// Check whether the extension is enabled.
+	const { enabled = true } =
+		await chrome.storage.local.get("enabled");
+
+	if (!enabled) {
+		console.log("Emoji Toggle is disabled.");
+		return;
+	}
+
 	const [tab] = await chrome.tabs.query({
 		active: true,
 		currentWindow: true
