@@ -1,2 +1,1 @@
 # google-docs-emoji-toggle
-
